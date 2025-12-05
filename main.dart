@@ -1,15 +1,32 @@
+// --- Dart Calculator ---
+// Strongly typed, clean structure, Flutter-friendly style.
+
 void main() {
-  final String userName = 'Milad';
-  final int userAge = 33;
-  final double hourlyWage = 10;
-  final bool isDeveloper = true;
+  int add(int a, int b) {
+    return a + b;
+  }
 
-  int currentScore = 10;
-  currentScore = 11;
+  int subtract(int a, int b) {
+    return a - b;
+  }
 
-  print("User Profile:");
-  print("Name: ${userName}");
-  print("Age: ${userAge}");
-  print("Is Developer: ${isDeveloper}");
-  print("Current Score: ${currentScore}");
+  int multiply(int a, int b) {
+    return a * b;
+  }
+
+  dynamic divide(int a, int b) {
+    if (b == 0) {
+      return "Error: Cannot divide by zero!";
+    }
+    return a / b; // Dart returns a double for division
+  }
+
+  final int num1 = 20;
+  final int num2 = 5;
+
+  print("--- Dart Calculator ---");
+  print("$num1 + $num2 = ${add(num1, num2)}");
+  print("$num1 - $num2 = ${subtract(num1, num2)}");
+  print("$num1 * $num2 = ${multiply(num1, num2)}");
+  print("$num1 / $num2 = ${divide(num1, num2)}");
 }
