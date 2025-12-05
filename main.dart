@@ -1,32 +1,40 @@
-// --- Dart Calculator ---
-// Strongly typed, clean structure, Flutter-friendly style.
+import 'dart:io';
+
+num add(num a, num b) => a + b;
+num subtract(num a, num b) => a - b;
+num multiply(num a, num b) => a * b;
+
+dynamic divide(num a, num b) {
+  if (b == 0) {
+    return "Error: Cannot divide by zero!";
+  }
+  return a / b;
+}
 
 void main() {
-  int add(int a, int b) {
-    return a + b;
-  }
+  print("--- Dart Interactive Calculator ---");
 
-  int subtract(int a, int b) {
-    return a - b;
-  }
+  stdout.write("Enter first number: ");
+  num num1 = num.parse(stdin.readLineSync()!);
 
-  int multiply(int a, int b) {
-    return a * b;
-  }
+  stdout.write("Choose operation (+, -, *, /): ");
+  String op = stdin.readLineSync()!;
 
-  dynamic divide(int a, int b) {
-    if (b == 0) {
-      return "Error: Cannot divide by zero!";
-    }
-    return a / b; // Dart returns a double for division
-  }
+  stdout.write("Enter second number: ");
+  num num2 = num.parse(stdin.readLineSync()!);
 
-  final int num1 = 20;
-  final int num2 = 5;
+  dynamic result;
 
-  print("--- Dart Calculator ---");
-  print("$num1 + $num2 = ${add(num1, num2)}");
-  print("$num1 - $num2 = ${subtract(num1, num2)}");
-  print("$num1 * $num2 = ${multiply(num1, num2)}");
-  print("$num1 / $num2 = ${divide(num1, num2)}");
+  if (op == "+")
+    result = add(num1, num2);
+  else if (op == "-")
+    result = subtract(num1, num2);
+  else if (op == "*")
+    result = multiply(num1, num2);
+  else if (op == "/")
+    result = divide(num1, num2);
+  else
+    result = "Invalid operation.";
+
+  print("Result: $result");
 }
