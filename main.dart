@@ -1,17 +1,45 @@
-// main.dart
+import 'dart:io';
 
 void main() {
-  print("--- Dart Crash Test ---");
+  // 1. DATA: List of Maps
+  // We specify that the keys are Strings and values are Strings
+  List<Map<String, String>> questions = [
+    {"text": "What is the capital of France?", "answer": "paris"},
+    {"text": "What is 5 + 5?", "answer": "10"},
+    {"text": "Which language uses print() and void main()?", "answer": "dart"},
+    {"text": "Who is the best developer?", "answer": "milad"},
+  ];
 
-  try {
-    print("1. Attempting to parse 'hello' to an integer...");
-    // This throws a FormatException
-    int result = int.parse("hello");
-    print("Success: $result"); // This line will NEVER run
-  } catch (e) {
-    // 'e' is the error object
-    print("🚨 CRASH AVERTED! Dart says: $e");
+  int score = 0;
+
+  print("--- 🧠 WELCOME TO THE SMART QUIZ (DART) 🧠 ---");
+
+  // 2. THE LOOP
+  for (var q in questions) {
+    stdout.write("\nQuestion: ${q['text']}\nYour Answer: ");
+
+    // 3. INPUT
+    String? input = stdin.readLineSync();
+
+    // Safety check: if input is null, make it empty string
+    String userAnswer = (input ?? "").toLowerCase().trim();
+
+    // 4. LOGIC
+    if (userAnswer == q['answer']) {
+      print("✅ Correct!");
+      score++;
+    } else {
+      print("❌ Wrong! The correct answer was: ${q['answer']}");
+    }
   }
 
-  print("✅ Program finished successfully. No crash.");
+  // 5. FINAL SCORE
+  print("\n-----------------------------");
+  print("Game Over! You got $score/${questions.length} correct.");
+
+  if (score == questions.length) {
+    print("🏆 PERFECTION! You are a Pro Developer!");
+  } else {
+    print("👍 Good job.");
+  }
 }
