@@ -36,20 +36,42 @@
 # main.py
 
 # --- 1. Define Data ---
-user_name = "Milad"
-user_age = 33
-is_developer = True  # Boolean: True or False
+# user_name = "Milad"
+# user_age = 33
+# is_developer = True  # Boolean: True or False
 
-# --- 2. The Bouncer Logic ---
-print("--- Python Club Access ---")
+# # --- 2. The Bouncer Logic ---
+# print("--- Python Club Access ---")
 
-# Check: Is he a dev? AND Is he old enough?
-if is_developer and user_age >= 18:
-    # This block runs ONLY if BOTH are true
-    print(f"Access Granted: Welcome, {user_name}!")
-    print("The VIP Wi-Fi password is: python_rules")
-else:
-    # This block runs if ANY condition fails
-    print("Access Denied: Developers only, 18+.")
+# # Check: Is he a dev? AND Is he old enough?
+# if is_developer and user_age >= 18:
+#     # This block runs ONLY if BOTH are true
+#     print(f"Access Granted: Welcome, {user_name}!")
+#     print("The VIP Wi-Fi password is: python_rules")
+# else:
+#     # This block runs if ANY condition fails
+#     print("Access Denied: Developers only, 18+.")
 
-print("-" * 20)
+# print("-" * 20)
+
+# main.py
+
+print("--- Python Rocket Launch ---")
+
+# 1. The FOR Loop
+# range(5, 0, -1) means: Start at 5, go down to (but not including) 0, step -1.
+for number in range(5, 0, -1):
+    print(f"T-minus {number}...")
+
+print("🚀 Blastoff! (For Loop Done)")
+
+print("\n--- Python Loading Bar ---")
+
+# 2. The WHILE Loop
+# "While battery is not full..."
+battery_level = 0
+while battery_level < 100:
+    battery_level += 20  # Increase by 20 each time
+    print(f"Charging... {battery_level}%")
+
+print("🔋 Fully Charged! (While Loop Done)")
