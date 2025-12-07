@@ -1,77 +1,16 @@
-# def add(a, b):
-#     return a + b
-
-# def subtract(a, b):
-#     return a - b
-
-# def multiply(a, b):
-#     return a * b
-
-# def divide(a, b):
-#     if b == 0:
-#         return "Error: Cannot divide by zero!"
-#     return a / b
-
-# print("--- Python Interactive Calculator ---")
-
-# num1 = float(input("Enter first number: "))
-# operation = input("Choose operation (+, -, *, /): ")
-# num2 = float(input("Enter second number: "))
-
-# result = None
-
-# if operation == "+":
-#     result = add(num1, num2)
-# elif operation == "-":
-#     result = subtract(num1, num2)
-# elif operation == "*":
-#     result = multiply(num1, num2)
-# elif operation == "/":
-#     result = divide(num1, num2)
-# else:
-#     result = "Invalid operation."
-
-# print(f"Result: {result}")
-
 # main.py
 
-# --- 1. Define Data ---
-# user_name = "Milad"
-# user_age = 33
-# is_developer = True  # Boolean: True or False
+print("--- Python Crash Test ---")
 
-# # --- 2. The Bouncer Logic ---
-# print("--- Python Club Access ---")
+try:
+    print("1. Attempting to convert 'hello' to a number...")
+    # This line triggers a "ValueError" because "hello" is not a number
+    result = int("hello") 
+    print(f"Success: {result}") # This line will NEVER run
 
-# # Check: Is he a dev? AND Is he old enough?
-# if is_developer and user_age >= 18:
-#     # This block runs ONLY if BOTH are true
-#     print(f"Access Granted: Welcome, {user_name}!")
-#     print("The VIP Wi-Fi password is: python_rules")
-# else:
-#     # This block runs if ANY condition fails
-#     print("Access Denied: Developers only, 18+.")
+except ValueError as e:
+    # We catch the specific error "ValueError"
+    print(f"🚨 CRASH AVERTED! Python says: {e}")
 
-# print("-" * 20)
-
-# main.py
-
-print("--- Python Rocket Launch ---")
-
-# 1. The FOR Loop
-# range(5, 0, -1) means: Start at 5, go down to (but not including) 0, step -1.
-for number in range(5, 0, -1):
-    print(f"T-minus {number}...")
-
-print("🚀 Blastoff! (For Loop Done)")
-
-print("\n--- Python Loading Bar ---")
-
-# 2. The WHILE Loop
-# "While battery is not full..."
-battery_level = 0
-while battery_level < 100:
-    battery_level += 20  # Increase by 20 each time
-    print(f"Charging... {battery_level}%")
-
-print("🔋 Fully Charged! (While Loop Done)")
+# This runs even after the error because we caught it!
+print("✅ Program finished successfully. No crash.")
